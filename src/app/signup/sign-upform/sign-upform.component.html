@@ -1,0 +1,45 @@
+
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name ="Id" [value]="service.formData.Id"/>
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control form-control-lg" placeholder="First Name"
+        name="LastName" #FirstName = "ngModel" [(ngModel)] ="service.formData.FirstName" 
+        required minlength="2"[class.invalid]="FirstName.invalid && FirstName.touched" >
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control form-control-lg" placeholder="Last Name"
+        name="LastName" #LastName = "ngModel" [(ngModel)] ="service.formData.LastName"
+        [class.invalid]="LastName.invalid && LastName.touched" required minlength="2">
+    </div>
+    <div class="form-group">
+        <label>UserName</label>
+        <input type="text" class="form-control form-control-lg" placeholder="UserName"
+        name="UserName" #UserName = "ngModel" [(ngModel)] ="service.formData.UserName"
+        [class.invalid]="UserName.invalid && UserName.touched" required minlength="2">
+    </div>
+    <div class="form-group">
+        <label>Email Address</label>
+        <input type="text" class="form-control form-control-lg" placeholder="Example@example.com"
+        name="Email" #Email = "ngModel" [(ngModel)] ="service.formData.Email" 
+        [class.invalid]="Email.invalid && Email.touched" required minlength="5" >
+    </div>
+    <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="text" class="form-control form-control-lg" placeholder="+27 670896722"
+        name="Mobile" #Mobile = "ngModel" [(ngModel)] ="service.formData.Mobile"
+        [class.invalid]="Mobile.invalid && Mobile.touched" required minlength="10">
+    </div>
+    <div class="form-group">
+        <label >Password</label>
+        <input type="text" class="form-control form-control-lg" placeholder="Jane@123!"
+        name="Password" #Password = "ngModel" [(ngModel)] ="service.formData.Passwords" [value]="service.formData.Passwords"
+         [class.invalid]="Password.invalid && Password.touched" minlength="4">
+    </div>
+    <div class="form-group">
+    <button type="submit" [disabled] ="form.invalid" class=" btn-lg btn-block mt-3">Sign Up</button>
+</div >
+</form>
+<a routerLink='/login' style="float:left;color:rgb(27, 44, 138)">Already Have account? Click to Login!</a>
+    
